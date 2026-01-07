@@ -26,6 +26,7 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import gts_infosoft_llp from "./company/gts_infosoft_llp.png";
 import simprosys_logo from './company/simprosys_logo.png'
+import sohan from "./sohan.jpg";
 export {
   logo,
   backend,
@@ -47,10 +48,11 @@ export {
   redux,
   tailwind,
   typescript,
-  threejs,  
+  threejs,
   carrent,
   jobit,
   tripguide,
   gts_infosoft_llp,
-  simprosys_logo
+  simprosys_logo,
+  sohan
 };

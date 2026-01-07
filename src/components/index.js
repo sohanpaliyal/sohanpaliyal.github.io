@@ -10,6 +10,8 @@ import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 
 
+import ThemeToggle from "./ThemeToggle";
+
 export {
   Hero,
   Navbar,
@@ -20,8 +22,9 @@ export {
   Feedbacks,
   Contact,
   CanvasLoader,
-  EarthCanvas, 
-  BallCanvas, 
-  ComputersCanvas, 
-  StarsCanvas
+  EarthCanvas,
+  BallCanvas,
+  ComputersCanvas,
+  StarsCanvas,
+  ThemeToggle
 };
