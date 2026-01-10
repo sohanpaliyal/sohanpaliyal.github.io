@@ -58,6 +58,18 @@ body {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
+/* Mobile menu text visibility in light mode */
+.glassmorphism a,
+.glassmorphism li {
+  color: var(--text-primary);
+}
+
+.dark .glassmorphism a,
+.dark .glassmorphism li {
+  color: var(--text-secondary);
+}
+
+
 .mesh-gradient {
   position: fixed;
   top: 0;
