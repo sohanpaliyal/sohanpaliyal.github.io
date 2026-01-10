@@ -6,7 +6,7 @@ import { sohan } from "../assets";
 const Hero = () => {
   return (
     <section className={`relative w-full h-screen mx-auto`}>
-      <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10`}>
+      <div className={`${styles.paddingX} absolute inset-0 top-[100px] sm:top-[120px] max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10`}>
         {/* Left Side: Indicator & Text */}
         <div className='flex flex-row items-start gap-5 flex-1'>
           <div className='flex flex-col justify-center items-center mt-5'>
@@ -28,7 +28,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="mt-10 lg:hidden"
+              className="mt-6 lg:hidden"
             >
               <div className='relative w-[280px] h-[280px] mx-auto'>
                 <div className='absolute -inset-1 bg-gradient-to-r from-vs-blue to-vs-purple rounded-full blur opacity-50 animate-pulse'></div>

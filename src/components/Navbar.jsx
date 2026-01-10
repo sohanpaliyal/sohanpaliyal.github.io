@@ -83,7 +83,7 @@ const Navbar = () => {
             <img
               src={toggle ? close : menu}
               alt='menu'
-              className='w-[28px] h-[28px] object-contain'
+              className='w-[28px] h-[28px] object-contain cursor-pointer brightness-0 dark:brightness-100 opacity-80 hover:opacity-100 transition-opacity'
               onClick={() => setToggle(!toggle)}
             />
 
