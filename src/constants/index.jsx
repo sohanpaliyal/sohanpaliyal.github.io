@@ -230,25 +230,34 @@ const companyProjects = [
     source_code_link: "https://karmm.com/",
   },
   {
-    name: "Qbitt",
+    name: "Phlenu Delivery",
     description:
-      "Appointment system for local businesses, enabling users to manage availability, appointments, and recurring events with ease.",
+      "PHLENU is a real-time delivery web app for scheduling, managing, and tracking parcel deliveries with instant price quotes.",
     tags: [
       {
-        name: "react",
-        color: "blue-text-gradient",
+        name: "angular",
+        color: "red-text-gradient",
       },
       {
-        name: "mui",
+        name: "firebase",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "material ui",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "cyan-text-gradient",
+      },
+      {
+        name: "agm map",
         color: "green-text-gradient",
       },
-      {
-        name: "typescript",
-        color: "pink-text-gradient",
-      },
+
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: jobit,
+    source_code_link: "https://phlenudelivery.com/auth/login",
   },
 ];
 
@@ -295,27 +304,7 @@ const personalProjects = [
     image: pipeline_builder,
     source_code_link: "https://sohanpaliyal.github.io/pipeline-builder-frontend/",
   },
-  {
-    name: "Phlenu Delivery",
-    description:
-      "Real-time delivery application panel featuring orders, customer management, merchant-customer chats, and promo-code systems.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "websocket",
-        color: "green-text-gradient",
-      },
-      {
-        name: "redux",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-  },
+
 ];
 
 export { services, technologies, experiences, technicalEnhancements, companyProjects, personalProjects };
