@@ -27,6 +27,11 @@ import tripguide from "./tripguide.png";
 import gts_infosoft_llp from "./company/gts_infosoft_llp.png";
 import simprosys_logo from './company/simprosys_logo.png'
 import sohan from "./sohan.jpg";
+import whatsweb from "./whatsweb.png";
+import simprosysapis from "./simprosysapis.svg";
+import karmm from "./karmm.png";
+import pipeline_builder from "./pipeline_builder.png";
+
 export {
   logo,
   backend,
@@ -54,5 +59,9 @@ export {
   tripguide,
   gts_infosoft_llp,
   simprosys_logo,
-  sohan
+  sohan,
+  whatsweb,
+  simprosysapis,
+  karmm,
+  pipeline_builder
 };

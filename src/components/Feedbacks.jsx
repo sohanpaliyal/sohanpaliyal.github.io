@@ -4,41 +4,36 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-import { testimonials } from "../constants";
+import { technicalEnhancements } from "../constants";
 
 const FeedbackCard = ({
   index,
-  testimonial,
-  name,
-  designation,
-  company,
-  image,
+  title,
+  description,
+  tags,
 }) => (
   <motion.div
     variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className='glassmorphism p-10 rounded-3xl xs:w-[320px] w-full'
+    className='glassmorphism p-10 rounded-3xl xs:w-[320px] w-full flex flex-col justify-between'
   >
-    <p className='text-white-100 font-black text-[48px]'>"</p>
+    <div>
+      <h4 className='text-white-100 font-bold text-[24px] mb-2 text-vs-blue'>
+        {title}
+      </h4>
+      <p className='text-secondary text-white-100 text-[14px] leading-relaxed mb-4'>
+        {description}
+      </p>
+    </div>
 
-    <div className='mt-1'>
-      <p className='text-white-100 tracking-wider text-[18px]'>{testimonial}</p>
-
-      <div className='mt-7 flex justify-between items-center gap-1'>
-        <div className='flex-1 flex flex-col'>
-          <p className='text-white-100 font-medium text-[16px]'>
-            <span className='blue-text-gradient'>@</span> {name}
-          </p>
-          <p className='mt-1 text-secondary text-[12px]'>
-            {designation} of {company}
-          </p>
-        </div>
-
-        <img
-          src={image}
-          alt={`feedback_by-${name}`}
-          className='w-10 h-10 rounded-full object-cover'
-        />
-      </div>
+    <div className='flex flex-wrap gap-2'>
+      {tags.map((tag) => (
+        <span
+          key={tag.name}
+          className={`text-[12px] ${tag.color} px-2 py-1 rounded-full border border-white/10 font-medium`}
+        >
+          {tag.name}
+        </span>
+      ))}
     </div>
   </motion.div>
 );
@@ -50,13 +45,13 @@ const Feedbacks = () => {
         className={`bg-tertiary rounded-2xl ${styles.padding} min-h-[300px]`}
       >
         <motion.div variants={textVariant()}>
-          <p className={styles.sectionSubText}>What others say</p>
-          <h2 className={styles.sectionHeadText}>Testimonials.</h2>
+          <p className={styles.sectionSubText}>Production Ready</p>
+          <h2 className={styles.sectionHeadText}>Technical Enhancements.</h2>
         </motion.div>
       </div>
       <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap gap-7`}>
-        {testimonials.map((testimonial, index) => (
-          <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
+        {technicalEnhancements.map((enhancement, index) => (
+          <FeedbackCard key={enhancement.title} index={index} {...enhancement} />
         ))}
       </div>
     </div>

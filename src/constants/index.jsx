@@ -17,6 +17,10 @@ import {
   carrent,
   jobit,
   tripguide,
+  whatsweb,
+  simprosysapis,
+  karmm,
+  pipeline_builder,
 } from "../assets";
 
 export const navLinks = [
@@ -94,19 +98,6 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Front-End Developer",
-    company_name: "GTS Infosoft LLP",
-    icon: gts_infosoft_llp,
-    iconBg: "#383E56",
-    date: "March 2021 - March 2024",
-    points: [
-      "Worked on over 10 diverse projects, designing, building, and maintaining reusable and reliable code, and guiding Junior Frontend Developers.",
-      "Implemented RxJs, modules, services, directives, pipes, and forms; wrote elegant, self-documenting, scalable, and testable code.",
-      "Collaborated with designers and managers to create exceptional user experiences and consistently delivered projects on time.",
-      "Optimized performance metrics like FCP and LCP using next-gen image formats and other optimization techniques.",
-    ],
-  },
-  {
     title: "Software Engineer",
     company_name: "Simprosys Infomedia",
     icon: simprosys_logo,
@@ -120,36 +111,82 @@ const experiences = [
       "Optimized key performance metrics, focusing on loading speed and application stability.",
     ],
   },
-];
-
-const testimonials = [
   {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Sohan proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Sohan does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Sohan optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    title: "Front-End Developer",
+    company_name: "GTS Infosoft LLP",
+    icon: gts_infosoft_llp,
+    iconBg: "#383E56",
+    date: "March 2021 - March 2024",
+    points: [
+      "Worked on over 10 diverse projects, designing, building, and maintaining reusable and reliable code, and guiding Junior Frontend Developers.",
+      "Implemented RxJs, modules, services, directives, pipes, and forms; wrote elegant, self-documenting, scalable, and testable code.",
+      "Collaborated with designers and managers to create exceptional user experiences and consistently delivered projects on time.",
+      "Optimized performance metrics like FCP and LCP using next-gen image formats and other optimization techniques.",
+    ],
   },
 ];
 
-const projects = [
+const technicalEnhancements = [
+  {
+    title: "01. Complex UI & Data Systems",
+    description:
+      "Designed intuitive interfaces for SimprosysAPIs, featuring dynamic \"Manage Products\" tables with collapsible variant views, advanced filtering, and bulk-customization rule engines for seamless feed management.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "Tanstack Table",
+        color: "blue-text-gradient",
+      },
+    ],
+  },
+  {
+    title: "02. Scalable Architectures",
+    description:
+      "Engineered multi-role platforms like Karmm using single codebases. Built complex modules for real-time delivery tracking, automated certificate generation, and secure role-based admin panels.",
+    tags: [
+      {
+        name: "Redux Toolkit",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Framer Motion",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "System Design",
+        color: "blue-text-gradient",
+      },
+    ],
+  },
+  {
+    title: "03. Performance Engineering",
+    description:
+      "Specialized in optimizing Core Web Vitals (FCP & LCP) and implementing reactive programming with RxJS. Focused on modular, testable code and next-gen assets for optimal user experience.",
+    tags: [
+      {
+        name: "RxJS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Optimization",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "Performance",
+        color: "blue-text-gradient",
+      },
+    ],
+  },
+];
+
+const companyProjects = [
   {
     name: "SimprosysAPIs",
     description:
@@ -168,8 +205,8 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: simprosysapis,
+    source_code_link: "https://admin.simprosysapis.com/",
   },
   {
     name: "Karmm",
@@ -189,29 +226,8 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Event-local",
-    description:
-      "Role-based admin panels for event management, featuring ticket generation, invitation distribution, and post-event certificate generation.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "redux-toolkit",
-        color: "green-text-gradient",
-      },
-      {
-        name: "vite",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: karmm,
+    source_code_link: "https://karmm.com/",
   },
   {
     name: "Qbitt",
@@ -233,6 +249,51 @@ const projects = [
     ],
     image: carrent,
     source_code_link: "https://github.com/",
+  },
+];
+
+const personalProjects = [
+  {
+    name: "WhatsApp Web Clone",
+    description:
+      "A static website clone of the WhatsApp Web interface, demonstrating pixel-perfect implementation using pure HTML, CSS, and Tailwind.",
+    tags: [
+      {
+        name: "html5",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "css3",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "green-text-gradient",
+      },
+    ],
+    image: whatsweb,
+    source_code_link: "https://sohanpaliyal.github.io/whatsweb-chat/",
+  },
+  {
+    name: "Pipeline Builder",
+    description:
+      "Visual pipeline builder for creating and managing data transformation workflows with drag-and-drop nodes, supporting LLM, database, API, and transformation operations.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "reactflow",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: pipeline_builder,
+    source_code_link: "https://sohanpaliyal.github.io/pipeline-builder-frontend/",
   },
   {
     name: "Phlenu Delivery",
@@ -257,7 +318,7 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, technicalEnhancements, companyProjects, personalProjects };
 
 export const socialLinks = [
   {
