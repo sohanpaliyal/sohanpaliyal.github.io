@@ -31,6 +31,7 @@ import whatsweb from "./whatsweb.png";
 import simprosysapis from "./simprosysapis.svg";
 import karmm from "./karmm.png";
 import pipeline_builder from "./pipeline_builder.png";
+import phlenu_delivery from "./phlenu_delivery.png";
 
 export {
   logo,
@@ -63,5 +64,6 @@ export {
   whatsweb,
   simprosysapis,
   karmm,
-  pipeline_builder
+  pipeline_builder,
+  phlenu_delivery
 };

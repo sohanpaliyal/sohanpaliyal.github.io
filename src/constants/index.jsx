@@ -21,6 +21,7 @@ import {
   simprosysapis,
   karmm,
   pipeline_builder,
+  phlenu_delivery,
 } from "../assets";
 
 export const navLinks = [
@@ -256,7 +257,7 @@ const companyProjects = [
       },
 
     ],
-    image: jobit,
+    image: phlenu_delivery,
     source_code_link: "https://phlenudelivery.com/auth/login",
   },
 ];
