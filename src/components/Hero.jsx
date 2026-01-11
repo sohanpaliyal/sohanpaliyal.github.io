@@ -19,8 +19,8 @@ const Hero = () => {
               Hi, I'm <span className='text-vs-blue'>Sohan</span>
             </h1>
             <p className={`${styles.heroSubText} mt-2 max-w-2xl`}>
-              I build AI-powered interfaces, web applications, <br className='sm:block hidden' />
-              and seamless user experiences.
+              I build scalable web applications and <br className='sm:block hidden' />
+              high-performance digital experiences.
             </p>
 
             {/* Profile Image for Mobile (Centered under text) */}

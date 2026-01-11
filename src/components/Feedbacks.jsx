@@ -14,7 +14,7 @@ const FeedbackCard = ({
 }) => (
   <motion.div
     variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className='glassmorphism p-10 rounded-3xl xs:w-[320px] w-full flex flex-col justify-between'
+    className='glassmorphism p-4 rounded-3xl xs:w-[320px] w-full flex flex-col justify-between'
   >
     <div>
       <h4 className='text-white-100 font-bold text-[24px] mb-2 text-vs-blue'>

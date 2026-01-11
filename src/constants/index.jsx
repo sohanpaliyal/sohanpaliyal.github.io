@@ -1,5 +1,4 @@
 import {
-  mobile,
   backend,
   creator,
   web,
@@ -14,9 +13,6 @@ import {
   figma,
   gts_infosoft_llp,
   simprosys_logo,
-  carrent,
-  jobit,
-  tripguide,
   whatsweb,
   simprosysapis,
   karmm,
