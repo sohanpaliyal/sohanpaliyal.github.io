@@ -11,6 +11,9 @@ import CanvasLoader from "./Loader";
 
 
 import ThemeToggle from "./ThemeToggle";
+import Blogs from "./Blogs";
+import BlogDetail from "./BlogDetail";
+import Tags from "./Tags";
 
 export {
   Hero,
@@ -25,5 +28,8 @@ export {
   EarthCanvas,
   BallCanvas,
   StarsCanvas,
-  ThemeToggle
+  ThemeToggle,
+  Blogs,
+  BlogDetail,
+  Tags
 };
