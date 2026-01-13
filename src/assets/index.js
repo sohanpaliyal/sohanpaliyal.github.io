@@ -14,6 +14,7 @@ import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
+import angular from "./tech/angular.svg";
 
 import gts_infosoft_llp from "./company/gts_infosoft_llp.png";
 import simprosys_logo from './company/simprosys_logo.png'
@@ -23,6 +24,9 @@ import simprosysapis from "./simprosysapis.svg";
 import karmm from "./karmm.png";
 import pipeline_builder from "./pipeline_builder.png";
 import phlenu_delivery from "./phlenu_delivery.png";
+
+import browser_storage from "./browser_storage.png";
+import event_bubbling from "./event_bubbling.svg";
 
 export {
   logo,
@@ -40,6 +44,7 @@ export {
   redux,
   tailwind,
   typescript,
+  angular,
   gts_infosoft_llp,
   simprosys_logo,
   sohan,
@@ -47,5 +52,7 @@ export {
   simprosysapis,
   karmm,
   pipeline_builder,
-  phlenu_delivery
+  phlenu_delivery,
+  browser_storage,
+  event_bubbling
 };

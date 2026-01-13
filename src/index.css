@@ -13,7 +13,7 @@
   --vectorshift-blue: #0985DF;
   --vectorshift-glow: #7AD7FF;
   --vectorshift-text: #E6DDFD;
-  --glass-bg: rgba(0, 0, 0, 0.05);
+  --glass-bg: #f3f3f3;
   --glass-border: rgba(0, 0, 0, 0.1);
 }
 
@@ -21,7 +21,7 @@
   --bg-primary: #131018;
   --text-primary: #ffffff;
   --text-secondary: #E6DDFD;
-  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg: #151030;
   --glass-border: rgba(255, 255, 255, 0.1);
 }
 
@@ -112,9 +112,10 @@ body {
 }
 
 .black-gradient {
-  background: var(--bg-primary);
-  background: -webkit-linear-gradient(to right, var(--glass-bg), var(--bg-primary));
-  background: linear-gradient(to right, var(--glass-bg), var(--bg-primary));
+  background: #000000;
+  /* Fallback */
+  background: linear-gradient(to right, #434343, #000000);
+  /* Standard sleek dark gradient */
 }
 
 .violet-gradient {
