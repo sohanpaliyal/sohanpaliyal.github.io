@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks, socialLinks, ctaText } from "../constants";
@@ -10,6 +10,7 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +56,11 @@ const Navbar = () => {
                 } hover:text-white-100 text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              {nav.id === "blog" ? (
+                <Link to="/blog">{nav.title}</Link>
+              ) : (
+                <a href={`/#${nav.id}`}>{nav.title}</a>
+              )}
             </li>
           ))}
         </ul>
@@ -102,7 +107,11 @@ const Navbar = () => {
                       setActive(nav.title);
                     }}
                   >
-                    <a href={`#${nav.id}`}>{nav.title}</a>
+                    {nav.id === "blog" ? (
+                      <Link to="/blog">{nav.title}</Link>
+                    ) : (
+                      <a href={`/#${nav.id}`}>{nav.title}</a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -110,9 +119,13 @@ const Navbar = () => {
               <div className='w-full h-[1px] bg-secondary/20 my-2' />
 
               <div className='flex flex-col gap-4'>
-                <p className='text-vs-blue font-bold text-[14px] leading-tight'>
+                <a
+                  href="#contact"
+                  onClick={() => setToggle(!toggle)}
+                  className='text-vs-blue font-bold text-[14px] leading-tight block hover:underline cursor-pointer'
+                >
                   {ctaText}
-                </p>
+                </a>
                 <div className='flex flex-row gap-4'>
                   {socialLinks.map((social) => (
                     <a

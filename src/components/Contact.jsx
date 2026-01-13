@@ -23,7 +23,12 @@ const Contact = () => {
 
         <div className='mt-5 mb-10'>
           <h4 className='text-vs-blue font-bold text-[20px] mb-4'>
-            {ctaText}
+            <a
+              href="mailto:officialsohanpaliyal@gmail.com"
+              className="hover:underline cursor-pointer transition-all hover:text-vs-glow"
+            >
+              {ctaText}
+            </a>
           </h4>
           <div className='flex flex-wrap gap-5'>
             {socialLinks.map((link) => (
