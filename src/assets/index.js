@@ -20,7 +20,9 @@ import gts_infosoft_llp from "./company/gts_infosoft_llp.png";
 import simprosys_logo from './company/simprosys_logo.png'
 import sohan from "./sohan.jpg";
 import whatsweb from "./whatsweb.png";
+import whatsweb_v2 from "./whatsweb_v2.png";
 import simprosysapis from "./simprosysapis.svg";
+import simprosysapis_v2 from "./simprosysapis_v2.png";
 import karmm from "./karmm.png";
 import pipeline_builder from "./pipeline_builder.png";
 import phlenu_delivery from "./phlenu_delivery.png";
@@ -49,7 +51,9 @@ export {
   simprosys_logo,
   sohan,
   whatsweb,
+  whatsweb_v2,
   simprosysapis,
+  simprosysapis_v2,
   karmm,
   pipeline_builder,
   phlenu_delivery,

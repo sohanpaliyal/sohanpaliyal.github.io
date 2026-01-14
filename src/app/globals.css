@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #131018;
+  --text-secondary: #4b5563;
+  --vectorshift-bg: #131018;
+  --vectorshift-purple: #430B8A;
+  --vectorshift-blue: #0985DF;
+  --vectorshift-glow: #7AD7FF;
+  --vectorshift-text: #E6DDFD;
+  --glass-bg: #f3f3f3;
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --bg-primary: #131018;
+  --text-primary: #ffffff;
+  --text-secondary: #E6DDFD;
+  --glass-bg: #151030;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.hash-span {
+  margin-top: -100px;
+  padding-bottom: 100px;
+  display: block;
+}
+
+/* VectorShift Gradients */
+.vectorshift-gradient {
+  background: linear-gradient(249deg, var(--vectorshift-blue) 0%, var(--vectorshift-purple) 83%);
+}
+
+.glassmorphism {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.mesh-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  margin: -10%;
+  z-index: -1;
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(9, 133, 223, 0.05) 0, transparent 40%),
+    radial-gradient(at 100% 0%, rgba(67, 11, 138, 0.05) 0, transparent 40%),
+    radial-gradient(at 50% 100%, rgba(122, 215, 255, 0.03) 0, transparent 40%);
+  animation: mesh-pulse 20s infinite alternate ease-in-out;
+}
+
+.dark .mesh-gradient {
+  background-image:
+    radial-gradient(at 20% 20%, rgba(67, 11, 138, 0.15) 0, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(9, 133, 223, 0.1) 0, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(122, 215, 255, 0.05) 0, transparent 50%);
+}
+
+@keyframes mesh-pulse {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.05) translate(-2%, 1%);
+  }
+
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.black-gradient {
+  background: #000000;
+  background: linear-gradient(to right, #434343, #000000);
+}
+
+.violet-gradient {
+  background: var(--vectorshift-purple);
+  background: linear-gradient(-90deg, var(--vectorshift-purple) 0%, rgba(67, 11, 138, 0) 100%);
+}
+
+.green-pink-gradient {
+  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+}
+
+.blue-text-gradient {
+  background: linear-gradient(to top, #0985DF, #7AD7FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.purple-text-gradient {
+  background: linear-gradient(to top, #430B8A, #E6DDFD);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Vertical Timeline line visibility fix */
+.vertical-timeline::before {
+  background: var(--text-primary) !important;
+  opacity: 0.2;
+}
+
+.dark .vertical-timeline::before {
+  background: #fff !important;
+  opacity: 0.2;
+}
+
+.vertical-timeline-element-date {
+  color: var(--text-primary) !important;
+}
+
+.dark .vertical-timeline-element-date {
+  color: #fff !important;
+}
+
+/* canvas- styles */
+.canvas-loader {
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.1s infinite ease;
+  transform: translateZ(0);
+}
+
+@keyframes mulShdSpin {
+
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+}
