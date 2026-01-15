@@ -16,15 +16,14 @@ const Contact = () => {
         <Section idName='contact' className='xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
             <motion.div
                 variants={slideIn("left", "tween", 0.2, 1)}
-                className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+                className='flex-1 bg-white dark:bg-black-100 p-8 rounded-2xl shadow-xl dark:shadow-none'
             >
                 <p className={styles.sectionSubText}>Get in touch</p>
                 <h3 className={styles.sectionHeadText}>Let's Connect.</h3>
 
                 <div className='mt-12 flex flex-col gap-6'>
                     <p className="text-secondary text-[17px] leading-[30px] max-w-3xl">
-                        I'm currently looking for new opportunities and my inbox is always open.
-                        Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                        Always open to discussing new projects, creative ideas, or opportunities to collaborate.
                     </p>
 
                     <div className="flex flex-col gap-4 mt-4">

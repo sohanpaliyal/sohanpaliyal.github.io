@@ -5,6 +5,63 @@ import Image from "next/image";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { styles } from "@/styles/styles";
 import { sohan } from "@/assets";
+import { useState, useEffect } from "react";
+
+const Typewriter = ({ text, speed = 150, pause = 1500 }: { text: string; speed?: number; pause?: number }) => {
+    const [displayedText, setDisplayedText] = useState("");
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isMounted) return;
+
+        let isCancelled = false;
+
+        const loop = async () => {
+            while (!isCancelled) {
+                // Typing
+                for (let i = 0; i <= text.length; i++) {
+                    if (isCancelled) return;
+                    setDisplayedText(text.slice(0, i));
+                    await new Promise((r) => setTimeout(r, speed));
+                }
+
+                // Pause at the end
+                await new Promise((r) => setTimeout(r, pause));
+
+                // Deleting
+                for (let i = text.length; i >= 0; i--) {
+                    if (isCancelled) return;
+                    setDisplayedText(text.slice(0, i));
+                    await new Promise((r) => setTimeout(r, speed / 2));
+                }
+
+                // Pause before restarting
+                await new Promise((r) => setTimeout(r, 500));
+            }
+        };
+
+        loop();
+
+        return () => {
+            isCancelled = true;
+        };
+    }, [text, speed, pause, isMounted]);
+
+    if (!isMounted) {
+        return <span>&nbsp;</span>;
+    }
+
+    return (
+        <span className="whitespace-pre">
+            {displayedText}
+            <span className="animate-pulse text-inherit">|</span>
+        </span>
+    );
+};
 
 const Hero = () => {
     return (
@@ -19,7 +76,8 @@ const Hero = () => {
 
                     <div className="z-10">
                         <h1 className={`${styles.heroHeadText} mb-6`}>
-                            Hi, I'm <span className='text-vs-blue'>Sohan</span>
+                            Hi, I'm <br className="hidden sm:block" />
+                            <span className='text-vs-blue whitespace-nowrap'><Typewriter text="Sohan Paliyal" /></span>
                         </h1>
                         <p className={`${styles.heroSubText} max-w-4xl`}>
                             I build scalable web applications and high-performance digital experiences.
@@ -78,6 +136,8 @@ const Hero = () => {
                                     alt='Sohan Ram'
                                     fill
                                     className='relative w-full h-full object-cover rounded-full border-4 border-vs-purple/30 shadow-2xl'
+                                    priority
+                                    fetchPriority="high"
                                 />
                             </div>
                         </motion.div>
@@ -102,6 +162,8 @@ const Hero = () => {
                                 alt='Sohan Ram'
                                 fill
                                 className='w-full h-full object-cover rounded-full p-2'
+                                priority
+                                fetchPriority="high"
                             />
                         </div>
                     </div>

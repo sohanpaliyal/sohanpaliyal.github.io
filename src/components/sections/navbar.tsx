@@ -10,10 +10,13 @@ import { styles } from "@/styles/styles";
 import { Github, Linkedin, Phone } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
+import { usePathname } from "next/navigation";
+
 const Navbar = () => {
     const [active, setActive] = useState("");
     const [toggle, setToggle] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,7 +35,7 @@ const Navbar = () => {
     return (
         <nav
             className={`${styles.paddingX
-                } w-full flex items-center py-5 fixed top-0 z-20 ${scrolled ? "bg-primary/80 backdrop-blur-md border-b border-glass-border" : "bg-transparent"
+                } w-full flex items-center py-5 fixed top-0 z-20 ${scrolled ? "bg-primary/80 backdrop-blur-md" : "bg-transparent"
                 } transition-all duration-300`}
         >
             <div className='w-full flex justify-between items-center max-w-[1400px] mx-auto'>
@@ -46,8 +49,7 @@ const Navbar = () => {
                 >
                     <Image src={logo} alt='logo' width={36} height={36} className='object-contain' />
                     <p className='text-white-100 text-[18px] font-bold cursor-pointer flex '>
-                        Sohan &nbsp;
-                        <span className='sm:block hidden'> | Paliyal</span>
+                        Sohan Paliyal
                     </p>
                 </Link>
 
@@ -63,7 +65,7 @@ const Navbar = () => {
                                 {nav.id === "blog" ? (
                                     <Link href='/blog'>{nav.title}</Link>
                                 ) : (
-                                    <a href={`#${nav.id}`}>{nav.title}</a>
+                                    <a href={pathname === "/" ? `#${nav.id}` : `/#${nav.id}`}>{nav.title}</a>
                                 )}
                             </li>
                         ))}
@@ -129,7 +131,7 @@ const Navbar = () => {
                                         {nav.id === "blog" ? (
                                             <Link href='/blog'>{nav.title}</Link>
                                         ) : (
-                                            <a href={`#${nav.id}`}>{nav.title}</a>
+                                            <a href={pathname === "/" ? `#${nav.id}` : `/#${nav.id}`}>{nav.title}</a>
                                         )}
                                     </li>
                                 ))}

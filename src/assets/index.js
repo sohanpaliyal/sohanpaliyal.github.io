@@ -15,6 +15,10 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import angular from "./tech/angular.svg";
+import mui from "./tech/mui.svg";
+import firebase from "./tech/firebase.svg";
+import framer from "./tech/framer.svg";
+import rxjs from "./tech/rxjs.svg";
 
 import gts_infosoft_llp from "./company/gts_infosoft_llp.png";
 import simprosys_logo from './company/simprosys_logo.png'
@@ -47,6 +51,10 @@ export {
   tailwind,
   typescript,
   angular,
+  mui,
+  firebase,
+  framer,
+  rxjs,
   gts_infosoft_llp,
   simprosys_logo,
   sohan,

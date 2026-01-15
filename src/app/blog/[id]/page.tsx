@@ -7,8 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-    const blog = blogs.find((b) => b.id === params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+    const blog = blogs.find((b) => b.id === id);
     if (!blog) return {};
 
     return {
@@ -17,8 +18,9 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     };
 }
 
-const BlogDetail = ({ params }: { params: { id: string } }) => {
-    const blog = blogs.find((b) => b.id === params.id);
+const BlogDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
+    const { id } = await params;
+    const blog = blogs.find((b) => b.id === id);
 
     if (!blog) {
         notFound();
@@ -50,12 +52,18 @@ const BlogDetail = ({ params }: { params: { id: string } }) => {
                     </h1>
                 </div>
 
-                <div className="prose prose-invert prose-lg max-w-none prose-headings:text-white-100 prose-p:text-secondary prose-li:text-secondary prose-strong:text-white-100">
+                <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-black-100 dark:prose-headings:text-white-100 prose-p:text-secondary prose-li:text-secondary prose-strong:text-black-100 dark:prose-strong:text-white-100 prose-code:text-vs-blue prose-code:bg-tertiary prose-code:px-1 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none prose-pre:bg-black-100 prose-pre:text-white-100 prose-pre:rounded-xl prose-pre:p-4">
                     <ReactMarkdown>{blog.content}</ReactMarkdown>
                 </div>
             </Section>
         </div>
     );
 };
+
+export function generateStaticParams() {
+    return blogs.map((blog) => ({
+        id: blog.id,
+    }));
+}
 
 export default BlogDetail;
