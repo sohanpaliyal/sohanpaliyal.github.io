@@ -7,7 +7,7 @@ import { navLinks } from "@/constants";
 import { logo, menu, close } from "@/assets";
 import { styles } from "@/styles/styles";
 
-import { Github, Linkedin, Phone } from "lucide-react";
+import { Github, Linkedin, Phone, Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 import { usePathname } from "next/navigation";
@@ -59,7 +59,7 @@ const Navbar = () => {
                             <li
                                 key={nav.id}
                                 className={`${active === nav.title ? "text-white-100" : "text-secondary"
-                                    } hover:text-white-100 text-[18px] font-medium cursor-pointer transition-colors`}
+                                    } hover:text-vs-purple hover:font-bold text-[18px] font-medium cursor-pointer transition-all duration-200`}
                                 onClick={() => setActive(nav.title)}
                             >
                                 {nav.id === "blog" ? (
@@ -104,14 +104,14 @@ const Navbar = () => {
                     <ThemeToggle />
 
                     <div className='sm:hidden flex items-center'>
-                        <Image
-                            src={toggle ? close : menu}
-                            alt='menu'
-                            width={28}
-                            height={28}
-                            className='object-contain cursor-pointer'
+                        <button
+                            type="button"
                             onClick={() => setToggle(!toggle)}
-                        />
+                            className="text-white-100 hover:text-vs-blue transition-colors focus:outline-none"
+                            aria-label="Toggle menu"
+                        >
+                            {toggle ? <X size={28} /> : <Menu size={28} />}
+                        </button>
 
                         <div
                             className={`${!toggle ? "hidden" : "flex"
@@ -122,7 +122,7 @@ const Navbar = () => {
                                     <li
                                         key={nav.id}
                                         className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white-100" : "text-secondary"
-                                            }`}
+                                            } hover:text-vs-purple hover:font-bold transition-all duration-200`}
                                         onClick={() => {
                                             setToggle(!toggle);
                                             setActive(nav.title);
