@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/sections/navbar";
 import ScrollToTop from "@/components/ui/scroll-to-top";
+import CommandPalette from "@/components/ui/command-palette";
 
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
                         <Navbar />
                         {children}
                         <ScrollToTop />
+                        <CommandPalette />
                     </div>
                 </ThemeProvider>
             </body>
