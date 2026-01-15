@@ -5,6 +5,7 @@ import Tech from "@/components/sections/tech";
 import Works from "@/components/sections/works";
 import Contact from "@/components/sections/contact";
 import StarsWrapper from "@/components/canvas/stars-wrapper";
+// import Guestbook from "@/components/sections/guestbook";
 
 export default function Home() {
     return (
@@ -14,6 +15,7 @@ export default function Home() {
             <Experience />
             <Tech />
             <Works />
+            {/* <Guestbook /> */}
             <div className="relative z-0">
                 <Contact />
                 <StarsWrapper />
