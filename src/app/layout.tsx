@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/sections/navbar";
+import ScrollToTop from "@/components/ui/scroll-to-top";
 
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
                         <div className="mesh-gradient" />
                         <Navbar />
                         {children}
+                        <ScrollToTop />
                     </div>
                 </ThemeProvider>
             </body>
