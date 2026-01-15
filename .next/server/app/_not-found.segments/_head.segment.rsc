@@ -1,5 +1,0 @@
-1:"$Sreact.fragment"
-2:I[97367,["/_next/static/chunks/7340adf74ff47ec0.js","/_next/static/chunks/d0c46da226ade5c3.js"],"ViewportBoundary"]
-3:I[97367,["/_next/static/chunks/7340adf74ff47ec0.js","/_next/static/chunks/d0c46da226ade5c3.js"],"MetadataBoundary"]
-4:"$Sreact.suspense"
-0:{"buildId":"33inneM2MHsrND2xwLbu3","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Sohan Paliyal | Software Engineer Portfolio"}],["$","meta","1",{"name":"description","content":"Senior Software Engineer specializing in React, TypeScript, and high-performance web applications."}],["$","meta","2",{"name":"keywords","content":"Software Engineer,React Developer,TypeScript,Performance Engineering,Portfolio"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
