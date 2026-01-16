@@ -359,141 +359,143 @@ export const personalProjects: Project[] = [
 export const ctaText = "Open to frontend / product engineer roles";
 
 export const blogs: Blog[] = [
-  {
-    id: "architecting-scalable-react-systems",
-    title: "Architecting Scalable React Systems: A 5-Year Retrospective",
-    subtitle: "From 'just making it work' to designing robust component systems. A deep dive into Compound Components, Headless UI, and architectural patterns that scale.",
-    author: "Sohan Paliyal",
-    date: "Jan 17, 2026",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "architecture",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "system-design",
-        color: "green-text-gradient",
-      },
-    ],
-    image: react_architecture,
-    content: `
-# Architecting Scalable React Systems: A 5-Year Retrospective
-
-Writing React code is easy. Writing React code that survives 5 years of feature creep, team expansion, and design pivots is hard. Here are the core architectural patterns I've adopted after half a decade in the trenches.
-
-## 1. The compound Component Pattern 🧩
-
-Stop passing 50 props to a single component. When building complex UI components like Selects, Modals, or Accordions, the **Compound Component Pattern** is non-negotiable.
-
-### The Problem: Prop Explosion
-\`\`\`tsx
-// ❌ Hard to maintain, hard to read
-<Select
-  options={options}
-  value={value}
-  onChange={onChange}
-  label="Choose"
-  renderOption={(opt) => <span>{opt.label}</span>}
-  dropdownClassName="my-dropdown"
-  itemClassName="my-item"
-/>
-\`\`\`
-
-### The Solution: Composition
-\`\`\`tsx
-// ✅ Flexible, readable, declarative
-<Select value={value} onChange={onChange}>
-  <Select.Label>Choose</Select.Label>
-  <Select.Trigger />
-  <Select.Content>
-    {options.map(opt => (
-       <Select.Item key={opt.id} value={opt.value}>
-         {opt.label}
-       </Select.Item>
-    ))}
-  </Select.Content>
-</Select>
-\`\`\`
-
-**Why it wins:**
-1.  **Inversion of Control**: The consumer decides the layout.
-2.  **No Prop Drilling**: Internal state is shared via Context.
-3.  **Clean API**: It reads like HTML.
-
-## 2. Separation of Concerns: Hooks as Logic Layers 🧠
-
-Components should care about *how things look*. Hooks should care about *how things work*.
-
-If your component has more than 2 \`useEffect\` hooks, it's doing too much.
-
-\`\`\`tsx
-// ❌ Tightly coupled logic
-const UserProfile = () => {
-    const [user, setUser] = useState(null);
-    useEffect(() => {
-        fetch('/api/user').then(u => setUser(u));
-    }, []);
-    // presentation logic...
-}
-
-// ✅ Separated Logic
-const UserProfile = () => {
-    const { user, isLoading } = useUser(); // All fetch logic hidden
-    
-    if (isLoading) return <Spinner />;
-    return <ProfileCard data={user} />;
-}
-\`\`\`
-
-## 3. Performance: Stability over Memoization ⚡
-
-Don't sprinkle \`useMemo\` everywhere. Instead, focus on **Reference Stability**.
-
-The most common performance killer isn't expensive calculations; it's **unnecessary re-renders caused by unstable props**.
-
-### The Unstable Object Trap
-\`\`\`tsx
-// ❌ This object is recreated on EVERY render
-<Chart config={{ theme: 'dark', animate: true }} />
-\`\`\`
-
-Even if \`<Chart>\` is wrapped in \`React.memo\`, it will re-render because \`{}\` !== \`{}\`.
-
-### The Fix
-\`\`\`tsx
-// ✅ Stable reference
-const chartConfig = useMemo(() => ({ theme: 'dark', animate: true }), []);
-<Chart config={chartConfig} />
-\`\`\`
-Or better yet, define usage-independent constants **outside** the component.
-
-## 4. Headless UI Libraries 💀
-
-Stop building accessible UI from scratch. You will get it wrong. Keyboard navigation, ARIA attributes, focus management—it's a minefield.
-
-Use "Headless" libraries that provide the *behavior* but zero *styles*.
--   **Radix UI**
--   **Headless UI**
--   **React Aria**
-
-You own the CSS (Tailwind), they own the \`aria-expanded\`, \`tabindex\`, and focus trappings.
-
----
-
-## Conclusion
-
-Scalable React architecture isn't about knowing every API feature. It's about:
-1.  **Composition** over Configuration.
-2.  **Separating** Logic from View.
-3.  **Respecting** Render Cycles.
-
-Code you wrote 6 months ago should feel like a helpful friend, not a mysterious burden.
-    `
-  },
+  /*
+    {
+      id: "architecting-scalable-react-systems",
+      title: "Architecting Scalable React Systems: A 5-Year Retrospective",
+      subtitle: "From 'just making it work' to designing robust component systems. A deep dive into Compound Components, Headless UI, and architectural patterns that scale.",
+      author: "Sohan Paliyal",
+      date: "Jan 17, 2026",
+      tags: [
+        {
+          name: "react",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "architecture",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "system-design",
+          color: "green-text-gradient",
+        },
+      ],
+      image: react_architecture,
+      content: `
+  # Architecting Scalable React Systems: A 5-Year Retrospective
+  
+  Writing React code is easy. Writing React code that survives 5 years of feature creep, team expansion, and design pivots is hard. Here are the core architectural patterns I've adopted after half a decade in the trenches.
+  
+  ## 1. The compound Component Pattern 🧩
+  
+  Stop passing 50 props to a single component. When building complex UI components like Selects, Modals, or Accordions, the **Compound Component Pattern** is non-negotiable.
+  
+  ### The Problem: Prop Explosion
+  \`\`\`tsx
+  // ❌ Hard to maintain, hard to read
+  <Select
+    options={options}
+    value={value}
+    onChange={onChange}
+    label="Choose"
+    renderOption={(opt) => <span>{opt.label}</span>}
+    dropdownClassName="my-dropdown"
+    itemClassName="my-item"
+  />
+  \`\`\`
+  
+  ### The Solution: Composition
+  \`\`\`tsx
+  // ✅ Flexible, readable, declarative
+  <Select value={value} onChange={onChange}>
+    <Select.Label>Choose</Select.Label>
+    <Select.Trigger />
+    <Select.Content>
+      {options.map(opt => (
+         <Select.Item key={opt.id} value={opt.value}>
+           {opt.label}
+         </Select.Item>
+      ))}
+    </Select.Content>
+  </Select>
+  \`\`\`
+  
+  **Why it wins:**
+  1.  **Inversion of Control**: The consumer decides the layout.
+  2.  **No Prop Drilling**: Internal state is shared via Context.
+  3.  **Clean API**: It reads like HTML.
+  
+  ## 2. Separation of Concerns: Hooks as Logic Layers 🧠
+  
+  Components should care about *how things look*. Hooks should care about *how things work*.
+  
+  If your component has more than 2 \`useEffect\` hooks, it's doing too much.
+  
+  \`\`\`tsx
+  // ❌ Tightly coupled logic
+  const UserProfile = () => {
+      const [user, setUser] = useState(null);
+      useEffect(() => {
+          fetch('/api/user').then(u => setUser(u));
+      }, []);
+      // presentation logic...
+  }
+  
+  // ✅ Separated Logic
+  const UserProfile = () => {
+      const { user, isLoading } = useUser(); // All fetch logic hidden
+      
+      if (isLoading) return <Spinner />;
+      return <ProfileCard data={user} />;
+  }
+  \`\`\`
+  
+  ## 3. Performance: Stability over Memoization ⚡
+  
+  Don't sprinkle \`useMemo\` everywhere. Instead, focus on **Reference Stability**.
+  
+  The most common performance killer isn't expensive calculations; it's **unnecessary re-renders caused by unstable props**.
+  
+  ### The Unstable Object Trap
+  \`\`\`tsx
+  // ❌ This object is recreated on EVERY render
+  <Chart config={{ theme: 'dark', animate: true }} />
+  \`\`\`
+  
+  Even if \`<Chart>\` is wrapped in \`React.memo\`, it will re-render because \`{}\` !== \`{}\`.
+  
+  ### The Fix
+  \`\`\`tsx
+  // ✅ Stable reference
+  const chartConfig = useMemo(() => ({ theme: 'dark', animate: true }), []);
+  <Chart config={chartConfig} />
+  \`\`\`
+  Or better yet, define usage-independent constants **outside** the component.
+  
+  ## 4. Headless UI Libraries 💀
+  
+  Stop building accessible UI from scratch. You will get it wrong. Keyboard navigation, ARIA attributes, focus management—it's a minefield.
+  
+  Use "Headless" libraries that provide the *behavior* but zero *styles*.
+  -   **Radix UI**
+  -   **Headless UI**
+  -   **React Aria**
+  
+  You own the CSS (Tailwind), they own the \`aria-expanded\`, \`tabindex\`, and focus trappings.
+  
+  ---
+  
+  ## Conclusion
+  
+  Scalable React architecture isn't about knowing every API feature. It's about:
+  1.  **Composition** over Configuration.
+  2.  **Separating** Logic from View.
+  3.  **Respecting** Render Cycles.
+  
+  Code you wrote 6 months ago should feel like a helpful friend, not a mysterious burden.
+      `
+    },
+  */
   {
     id: "browser-storage-remember-me",
     title: "Understanding localStorage, sessionStorage, and Cookies",
