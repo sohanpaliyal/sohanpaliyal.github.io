@@ -33,6 +33,7 @@ import phlenu_delivery from "./phlenu_delivery.png";
 
 import browser_storage from "./browser_storage.png";
 import event_bubbling from "./event_bubbling.svg";
+import react_architecture from "./react_architecture.png";
 
 export {
   logo,
@@ -66,5 +67,6 @@ export {
   pipeline_builder,
   phlenu_delivery,
   browser_storage,
-  event_bubbling
+  event_bubbling,
+  react_architecture
 };
