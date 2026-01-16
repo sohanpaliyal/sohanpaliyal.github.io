@@ -82,7 +82,7 @@ const Playground = () => {
     }, [isFullScreen]);
 
     return (
-        <div className={`flex flex-col xl:flex-row gap-6 w-full transition-all duration-300 ${isFullScreen ? "fixed inset-0 z-[100] bg-black-100 p-6 h-screen" : "h-[80vh]"}`}>
+        <div className={`flex flex-col xl:flex-row gap-6 w-full transition-all duration-300 ${isFullScreen ? "fixed inset-0 z-[9999] bg-primary p-6 h-screen" : "h-[80vh]"}`}>
             {/* Left Panel: Editor */}
             <motion.div
                 variants={slideIn("left", "tween", 0.2, 1)}
