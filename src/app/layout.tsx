@@ -3,9 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/sections/navbar";
 import ScrollToTop from "@/components/ui/scroll-to-top";
-import CommandPalette from "@/components/ui/command-palette";
-
 import { ThemeProvider } from "@/components/theme-provider";
+import { CommandPaletteProvider } from "@/context/CommandPaletteContext";
 
 const inter = Inter({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
 
@@ -29,13 +28,14 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <div className="relative z-0">
-                        <div className="mesh-gradient" />
-                        <Navbar />
-                        {children}
-                        <ScrollToTop />
-                        <CommandPalette />
-                    </div>
+                    <CommandPaletteProvider>
+                        <div className="relative z-0">
+                            <div className="mesh-gradient" />
+                            <Navbar />
+                            {children}
+                            <ScrollToTop />
+                        </div>
+                    </CommandPaletteProvider>
                 </ThemeProvider>
             </body>
         </html>

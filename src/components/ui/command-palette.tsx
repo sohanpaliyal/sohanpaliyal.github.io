@@ -38,38 +38,38 @@ const CommandItem = ({ id, icon: Icon, label, shortcut, action, active, onMouseE
     );
 };
 
-const CommandPalette = () => {
-    const [isOpen, setIsOpen] = useState(false);
+interface CommandPaletteProps {
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
+}
+
+const CommandPalette = ({ isOpen, setIsOpen }: CommandPaletteProps) => {
     const [query, setQuery] = useState("");
     const [selectedIndex, setSelectedIndex] = useState(0);
     const router = useRouter();
     const { setTheme } = useTheme();
 
-    // Toggle logic
-    const toggleOpen = useCallback(() => {
-        setIsOpen((prev) => !prev);
-        setQuery("");
-        setSelectedIndex(0);
-    }, []);
+    // Reset state when opened
+    useEffect(() => {
+        if (isOpen) {
+            setQuery("");
+            setSelectedIndex(0);
+        }
+    }, [isOpen]);
 
+    // Handle internal navigation (Tab, etc)
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
-            if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+            if (!isOpen) return;
+
+            if (e.key === "Tab") {
                 e.preventDefault();
-                toggleOpen();
-            }
-            if (e.key === "Escape" && isOpen) {
-                setIsOpen(false);
-            }
-            if (e.key === "Tab" && isOpen) {
-                e.preventDefault();
-                // Optional: Implement tab cycling logic here if needed
             }
         };
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    });
+    }, [isOpen]);
 
     // Scroll active item into view
     useEffect(() => {
@@ -83,7 +83,12 @@ const CommandPalette = () => {
     // Navigation and Actions
     const navigateTo = (path: string) => {
         setIsOpen(false);
-        router.push(path);
+        if (path.startsWith("/#")) {
+            // Force browser native jump for anchors, ensuring it works even if already on the page
+            window.location.href = path;
+        } else {
+            router.push(path);
+        }
     };
 
     const openExternal = (url: string) => {
@@ -103,7 +108,7 @@ const CommandPalette = () => {
             items: [
                 { icon: Home, label: "Home", action: () => navigateTo("/") },
                 { icon: User, label: "About", action: () => navigateTo("/#about") },
-                { icon: Briefcase, label: "Projects", action: () => navigateTo("/#work") },
+                { icon: Briefcase, label: "Work", action: () => navigateTo("/#work") },
                 { icon: FileText, label: "Blog", action: () => navigateTo("/blog") },
                 { icon: Mail, label: "Contact", action: () => navigateTo("/#contact") },
             ],
@@ -181,15 +186,15 @@ const CommandPalette = () => {
                         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999]"
                     />
 
-                    {/* Modal */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: -20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                        transition={{ duration: 0.2 }}
-                        className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-lg z-[10000] px-4"
-                    >
-                        <div className="bg-tertiary border border-white/10 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[60vh]">
+                    {/* Modal Wrapper for Centering */}
+                    <div className="fixed inset-0 z-[10000] flex items-start justify-center pt-[15vh] sm:pt-[20vh] px-4 pointer-events-none">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                            transition={{ duration: 0.2 }}
+                            className="w-full max-w-lg pointer-events-auto bg-tertiary border border-white/10 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[60vh]"
+                        >
                             {/* Input */}
                             <div className="flex items-center border-b border-white/10 px-4 py-4">
                                 <Search className="text-secondary w-5 h-5 mr-3" />
@@ -262,11 +267,11 @@ const CommandPalette = () => {
                                     <span>↵ to select</span>
                                 </div>
                             </div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    </div>
                 </>
             )}
-        </AnimatePresence>
+        </AnimatePresence >
     );
 };
 
