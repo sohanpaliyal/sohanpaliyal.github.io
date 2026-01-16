@@ -75,6 +75,10 @@ export const navLinks: NavLink[] = [
     id: "blog",
     title: "Blog",
   },
+  {
+    id: "playground",
+    title: "JS Playground",
+  },
 ];
 
 export const tiltOptions = {
