@@ -7,9 +7,9 @@ import { navLinks } from "@/constants";
 import { logo, menu, close } from "@/assets";
 import { styles } from "@/styles/styles";
 
-import { Github, Linkedin, Phone, Menu, X } from "lucide-react";
+import { Github, Linkedin, Phone, Menu, X, Search } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-
+import { useCommandPalette } from "@/context/CommandPaletteContext";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
@@ -17,6 +17,7 @@ const Navbar = () => {
     const [toggle, setToggle] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
+    const { open } = useCommandPalette();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -99,6 +100,18 @@ const Navbar = () => {
                             <Linkedin size={20} />
                         </a>
                     </div>
+
+                    {/* Command Palette Trigger */}
+                    <button
+                        onClick={open}
+                        className="flex items-center gap-2 text-secondary hover:text-white-100 transition-colors"
+                        title="Search (Cmd+K)"
+                    >
+                        <Search size={20} />
+                        <span className="hidden lg:inline text-xs border border-white/20 px-1.5 py-0.5 rounded font-mono">
+                            Cmd K
+                        </span>
+                    </button>
 
                     {/* Dark Mode Toggle */}
                     <ThemeToggle />
