@@ -69,6 +69,18 @@ const Playground = () => {
         setError(null);
     };
 
+    // Handle Escape key to exit full screen
+    React.useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape" && isFullScreen) {
+                setIsFullScreen(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isFullScreen]);
+
     return (
         <div className={`flex flex-col xl:flex-row gap-6 w-full transition-all duration-300 ${isFullScreen ? "fixed inset-0 z-[100] bg-black-100 p-6 h-screen" : "h-[80vh]"}`}>
             {/* Left Panel: Editor */}
