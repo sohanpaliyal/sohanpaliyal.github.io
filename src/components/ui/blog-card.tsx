@@ -24,7 +24,7 @@ const BlogCard = ({
 }: BlogCardProps) => {
     return (
         <motion.div
-            variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+            variants={fadeIn("up", "spring", index * 0.1, 0.75)}
             className='w-full h-full'
         >
             <Tilt

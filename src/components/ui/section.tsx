@@ -8,15 +8,17 @@ interface SectionProps {
     children: React.ReactNode;
     idName: string;
     className?: string;
+    forceAnimation?: boolean;
 }
 
-const Section = ({ children, idName, className = "" }: SectionProps) => {
+const Section = ({ children, idName, className = "", forceAnimation = false }: SectionProps) => {
     return (
         <motion.section
             variants={staggerContainer()}
             initial='hidden'
-            whileInView='show'
-            viewport={{ once: true, amount: 0.25 }}
+            whileInView={forceAnimation ? undefined : 'show'}
+            animate={forceAnimation ? 'show' : undefined}
+            viewport={{ once: true, amount: 0.1 }}
             className={`${styles.padding} max-w-7xl mx-auto relative z-0 ${className}`}
         >
             <span className='hash-span' id={idName}>

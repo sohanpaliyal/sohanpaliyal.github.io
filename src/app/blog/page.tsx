@@ -1,8 +1,8 @@
 import React from "react";
 import { blogs } from "@/constants";
-import Section from "@/components/ui/section";
 import BlogCard from "@/components/ui/blog-card";
 import { styles } from "@/styles/styles";
+import Section from "@/components/ui/section";
 
 export const metadata = {
     title: "Blog | Sohan Paliyal",
@@ -12,7 +12,7 @@ export const metadata = {
 const BlogPage = () => {
     return (
         <div className='pt-20'>
-            <Section idName='blogs'>
+            <Section idName="blogs" forceAnimation>
                 <div className="flex flex-col">
                     <p className={styles.sectionSubText}>My thoughts</p>
                     <h2 className={styles.sectionHeadText}>Blog.</h2>
