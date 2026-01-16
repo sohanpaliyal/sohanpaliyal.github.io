@@ -63,8 +63,8 @@ const Navbar = () => {
                                     } hover:text-vs-purple hover:font-bold text-[18px] font-medium cursor-pointer transition-all duration-200`}
                                 onClick={() => setActive(nav.title)}
                             >
-                                {nav.id === "blog" ? (
-                                    <Link href='/blog'>{nav.title}</Link>
+                                {nav.id === "blog" || nav.id === "playground" ? (
+                                    <Link href={`/${nav.id}`}>{nav.title}</Link>
                                 ) : (
                                     <a href={pathname === "/" ? `#${nav.id}` : `/#${nav.id}`}>{nav.title}</a>
                                 )}
@@ -141,8 +141,8 @@ const Navbar = () => {
                                             setActive(nav.title);
                                         }}
                                     >
-                                        {nav.id === "blog" ? (
-                                            <Link href='/blog'>{nav.title}</Link>
+                                        {nav.id === "blog" || nav.id === "playground" ? (
+                                            <Link href={`/${nav.id}`}>{nav.title}</Link>
                                         ) : (
                                             <a href={pathname === "/" ? `#${nav.id}` : `/#${nav.id}`}>{nav.title}</a>
                                         )}

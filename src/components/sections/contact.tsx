@@ -8,6 +8,7 @@ import { styles } from "@/styles/styles";
 import Section from "@/components/ui/section";
 import { slideIn } from "@/lib/motion";
 import { Mail, Linkedin, MessageSquare, Phone } from "lucide-react";
+import ContactOption from "@/components/ui/contact-option";
 
 const EarthCanvas = dynamic(() => import("@/components/canvas/earth"), { ssr: false });
 
@@ -22,66 +23,51 @@ const Contact = () => {
                 <h3 className={styles.sectionHeadText}>Let's Connect.</h3>
 
                 <div className='mt-12 flex flex-col gap-6'>
-                    <p className="text-secondary text-[17px] leading-[30px] max-w-3xl">
+                    <p className="text-secondary text-sm sm:text-[17px] leading-[30px] max-w-3xl">
                         Always open to discussing new projects, creative ideas, or opportunities to collaborate.
                     </p>
 
-                    <div className="flex flex-col gap-4 mt-4">
-                        <a
+                    <div className="grid sm:grid-cols-2 gap-4 mt-4">
+                        <ContactOption
                             href="mailto:paliyalsohan7@gmail.com"
-                            className="flex items-center gap-4 p-4 rounded-xl bg-tertiary border border-glass-border hover:border-vs-blue/50 hover:bg-vs-blue/5 transition-all group"
-                        >
-                            <div className="w-12 h-12 rounded-lg bg-vs-blue/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <Mail className="text-vs-blue" size={24} />
-                            </div>
-                            <div>
-                                <h4 className="text-white-100 font-bold">Email Me</h4>
-                                <p className="text-secondary text-sm">paliyalsohan7@gmail.com</p>
-                            </div>
-                        </a>
-
-                        <a
+                            icon={Mail}
+                            title="Email Me"
+                            subtitle="paliyalsohan7@gmail.com"
+                            iconColor="text-vs-blue"
+                            iconBg="bg-vs-blue/10"
+                            hoverBorder="hover:border-vs-blue/50"
+                            hoverBg="hover:bg-vs-blue/5"
+                        />
+                        <ContactOption
                             href="https://wa.me/919587711187"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-4 p-4 rounded-xl bg-tertiary border border-glass-border hover:border-green-500/50 hover:bg-green-500/5 transition-all group"
-                        >
-                            <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <MessageSquare className="text-green-500" size={24} />
-                            </div>
-                            <div>
-                                <h4 className="text-white-100 font-bold">WhatsApp Chat</h4>
-                                <p className="text-secondary text-sm">Instant message for quick chat</p>
-                            </div>
-                        </a>
-
-                        <a
+                            icon={MessageSquare}
+                            title="WhatsApp Chat"
+                            subtitle="Instant message for quick chat"
+                            iconColor="text-green-500"
+                            iconBg="bg-green-500/10"
+                            hoverBorder="hover:border-green-500/50"
+                            hoverBg="hover:bg-green-500/5"
+                        />
+                        <ContactOption
                             href="https://linkedin.com/in/sohanpaliyal"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-4 p-4 rounded-xl bg-tertiary border border-glass-border hover:border-vs-purple/50 hover:bg-vs-purple/5 transition-all group"
-                        >
-                            <div className="w-12 h-12 rounded-lg bg-vs-purple/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <Linkedin className="text-vs-purple" size={24} />
-                            </div>
-                            <div>
-                                <h4 className="text-white-100 font-bold">LinkedIn</h4>
-                                <p className="text-secondary text-sm">Professional networking & recruitment</p>
-                            </div>
-                        </a>
-
-                        <a
+                            icon={Linkedin}
+                            title="LinkedIn"
+                            subtitle="Professional networking"
+                            iconColor="text-vs-purple"
+                            iconBg="bg-vs-purple/10"
+                            hoverBorder="hover:border-vs-purple/50"
+                            hoverBg="hover:bg-vs-purple/5"
+                        />
+                        <ContactOption
                             href="tel:+919587711187"
-                            className="flex items-center gap-4 p-4 rounded-xl bg-tertiary border border-glass-border hover:border-vs-glow/50 hover:bg-vs-glow/5 transition-all group"
-                        >
-                            <div className="w-12 h-12 rounded-lg bg-vs-glow/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <Phone className="text-vs-glow" size={24} />
-                            </div>
-                            <div>
-                                <h4 className="text-white-100 font-bold">Direct Call</h4>
-                                <p className="text-secondary text-sm">Tap to call +91 9587711187</p>
-                            </div>
-                        </a>
+                            icon={Phone}
+                            title="Direct Call"
+                            subtitle="+91 9587711187"
+                            iconColor="text-vs-glow"
+                            iconBg="bg-vs-glow/10"
+                            hoverBorder="hover:border-vs-glow/50"
+                            hoverBg="hover:bg-vs-glow/5"
+                        />
                     </div>
                 </div>
             </motion.div>

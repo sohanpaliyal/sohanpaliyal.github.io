@@ -36,12 +36,13 @@ const BlogDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
                     ← Back to blogs
                 </Link>
 
-                <div className="relative w-full h-[400px] rounded-3xl overflow-hidden mb-10 shadow-2xl">
+                <div className="relative w-full h-[500px] rounded-3xl overflow-hidden mb-10 shadow-2xl bg-black-200">
                     <Image
                         src={blog.image}
                         alt={blog.title}
                         fill
-                        className="object-cover"
+                        className="object-contain"
+                        priority
                     />
                 </div>
 
