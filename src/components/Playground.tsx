@@ -6,7 +6,7 @@ import { highlight, languages } from "prismjs";
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-tomorrow.css"; // Dark theme
-import { Play, Trash2, Terminal } from "lucide-react";
+import { Play, Trash2, Terminal, Maximize2, Minimize2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { slideIn } from "@/lib/motion";
 
@@ -30,6 +30,7 @@ const Playground = () => {
     const [code, setCode] = useState(defaultCode);
     const [output, setOutput] = useState<any[]>([]);
     const [error, setError] = useState<string | null>(null);
+    const [isFullScreen, setIsFullScreen] = useState(false);
 
     const runCode = useCallback(() => {
         setOutput([]);
@@ -69,13 +70,13 @@ const Playground = () => {
     };
 
     return (
-        <div className="flex flex-col xl:flex-row gap-6 h-[80vh] w-full">
+        <div className={`flex flex-col xl:flex-row gap-6 w-full transition-all duration-300 ${isFullScreen ? "fixed inset-0 z-[100] bg-black-100 p-6 h-screen" : "h-[80vh]"}`}>
             {/* Left Panel: Editor */}
             <motion.div
                 variants={slideIn("left", "tween", 0.2, 1)}
                 initial="hidden"
                 animate="show"
-                className="flex-[1.5] flex flex-col gap-2 relative bg-[#1e1e1e] rounded-xl overflow-hidden border border-white/10 shadow-2xl"
+                className={`flex flex-col gap-2 relative bg-[#1e1e1e] rounded-xl overflow-hidden border border-white/10 shadow-2xl ${isFullScreen ? "flex-[1]" : "flex-[1.5]"}`}
             >
                 <div className="flex items-center justify-between px-4 py-3 bg-[#252526] border-b border-white/5">
                     <div className="flex items-center gap-2">
@@ -84,6 +85,13 @@ const Playground = () => {
                         <div className="w-3 h-3 rounded-full bg-green-500" />
                         <span className="ml-2 text-sm text-gray-400 font-mono">script.js</span>
                     </div>
+                    <button
+                        onClick={() => setIsFullScreen(!isFullScreen)}
+                        className="text-gray-400 hover:text-white transition-colors"
+                        title={isFullScreen ? "Exit Full Screen" : "Enter Full Screen"}
+                    >
+                        {isFullScreen ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+                    </button>
                 </div>
 
                 <div className="flex-1 overflow-auto font-mono text-[14px]">
