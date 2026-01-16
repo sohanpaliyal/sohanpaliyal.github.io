@@ -155,8 +155,26 @@ Replace 3D models in `src/components/canvas/` to customize the visual experience
 This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
+Contributions are always welcome! If you'd like to improve this project, please follow these steps:
 
-Contributions, issues, and feature requests are welcome!
+1.  **Fork the repository**
+2.  **Clone your fork**:
+    ```bash
+    git clone https://github.com/your-username/portfolio.git
+    ```
+3.  **Create a new branch**:
+    ```bash
+    git checkout -b feature/amazing-feature
+    ```
+4.  **Make your changes** and commit them:
+    ```bash
+    git commit -m 'feat: add some amazing feature'
+    ```
+5.  **Push to the branch**:
+    ```bash
+    git push origin feature/amazing-feature
+    ```
+6.  **Open a Pull Request** via GitHub
 
 ## 📧 Contact
 
