@@ -9,26 +9,29 @@ A modern 3D portfolio website showcasing my professional experience, technical s
 - **3D Interactive Hero Section** - Animated 3D desktop model with smooth camera movements
 - **Professional Experience Timeline** - Vertical timeline showcasing work history
 - **Technical Skills Display** - 3D floating tech stack icons with interactive animations
-- **Project Showcase** - Categorized company and personal projects with live demos
+- **Command Palette (Cmd+K)** - Quick navigation and search functionality
+- **Technical Blog** - Integrated markdown-based blog with SEO optimization
+- **Theme Support** - Dark/Light mode toggle with system preference detection
+- **Project Showcase** - Categorized projects with "Architecture Mode" visualization
 - **Responsive Design** - Fully optimized for all devices and screen sizes
 - **Smooth Animations** - Framer Motion powered transitions throughout
-- **3D Background Effects** - Animated star field using Three.js
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework:** React 18
+- **Framework:** Next.js 16 (App Router)
+- **Library:** React 19
 - **3D Graphics:** Three.js, React Three Fiber, React Three Drei
 - **Animations:** Framer Motion
-- **Styling:** Tailwind CSS
-- **Build Tool:** Vite
-- **Deployment:** GitHub Pages (CI/CD)
+- **Styling:** Tailwind CSS, Lucide React
+- **Language:** TypeScript
+- **Deployment:** GitHub Pages (Static Exports)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/)
 
 ### Installation
 
@@ -48,7 +51,7 @@ npm install
 npm run dev
 ```
 
-4. Open [http://localhost:5173](http://localhost:5173) in your browser
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ### Build for Production
 
@@ -56,34 +59,17 @@ npm run dev
 npm run build
 ```
 
-The optimized build will be generated in the `dist` directory.
+The optimized build will be generated in the `.next` directory (or `out` for static exports).
 
-### Preview Production Build
+### Run Production Build
 
 ```bash
-npm run preview
+npm run start
 ```
 
 ## 📦 CI/CD Deployment
 
 This project uses GitHub Actions for automated deployment to GitHub Pages.
-
-### Setup Instructions
-
-1. **Enable GitHub Pages:**
-   - Go to your repository settings
-   - Navigate to **Pages** section
-   - Under **Source**, select **GitHub Actions**
-
-2. **Push to Main Branch:**
-   - The workflow automatically triggers on push to `main` branch
-   - Build and deployment happen automatically
-   - Your site will be live at `https://<username>.github.io/portfolio/`
-
-3. **Manual Deployment:**
-   - Go to **Actions** tab in your repository
-   - Select the **Deploy to GitHub Pages** workflow
-   - Click **Run workflow**
 
 ### Workflow Details
 
@@ -91,7 +77,7 @@ The deployment workflow (`.github/workflows/deploy.yml`) performs the following:
 - Checks out the code
 - Sets up Node.js environment
 - Installs dependencies
-- Builds the production bundle
+- Builds the production bundle (Static Export)
 - Deploys to GitHub Pages
 
 ## 📁 Project Structure
@@ -103,29 +89,26 @@ portfolio/
 │       └── deploy.yml          # CI/CD workflow
 ├── public/                     # Static assets
 ├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── blog/               # Blog routes
+│   │   ├── favicon.ico
+│   │   ├── globals.css         # Global styles
+│   │   ├── layout.tsx          # Root layout
+│   │   └── page.tsx            # Home page
 │   ├── assets/                 # Images, icons, 3D models
 │   ├── components/             # React components
-│   │   ├── About.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Tech.jsx
-│   │   ├── Works.jsx
-│   │   └── canvas/             # 3D canvas components
+│   │   ├── canvas/             # 3D canvas components
+│   │   ├── sections/           # Landing page sections
+│   │   └── ui/                 # Reusable UI components
 │   ├── constants/              # Configuration and data
-│   │   └── index.jsx
-│   ├── hoc/                    # Higher-order components
-│   ├── utils/                  # Utility functions
-│   ├── App.jsx                 # Main app component
-│   ├── index.css               # Global styles
-│   └── main.jsx                # Entry point
+│   ├── context/                # Global contexts (Command Palette)
+│   ├── lib/                    # Utilities (Motion etc.)
+│   └── utils/                  # Helper functions
 ├── .gitignore
-├── index.html
+├── next.config.js
 ├── package.json
-├── postcss.config.cjs
-├── tailwind.config.cjs
-├── vite.config.js
+├── tailwind.config.js
+├── tsconfig.json
 └── README.md
 ```
 
