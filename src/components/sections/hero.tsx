@@ -5,55 +5,10 @@ import Image from "next/image";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { styles } from "@/styles/styles";
 import { sohan } from "@/assets";
-import { useState, useEffect } from "react";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
-const Typewriter = ({ text, speed = 150, pause = 1500 }: { text: string; speed?: number; pause?: number }) => {
-    const [displayedText, setDisplayedText] = useState("");
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (!isMounted) return;
-
-        let isCancelled = false;
-
-        const loop = async () => {
-            while (!isCancelled) {
-                // Typing
-                for (let i = 0; i <= text.length; i++) {
-                    if (isCancelled) return;
-                    setDisplayedText(text.slice(0, i));
-                    await new Promise((r) => setTimeout(r, speed));
-                }
-
-                // Pause at the end
-                await new Promise((r) => setTimeout(r, pause));
-
-                // Deleting
-                for (let i = text.length; i >= 0; i--) {
-                    if (isCancelled) return;
-                    setDisplayedText(text.slice(0, i));
-                    await new Promise((r) => setTimeout(r, speed / 2));
-                }
-
-                // Pause before restarting
-                await new Promise((r) => setTimeout(r, 500));
-            }
-        };
-
-        loop();
-
-        return () => {
-            isCancelled = true;
-        };
-    }, [text, speed, pause, isMounted]);
-
-    if (!isMounted) {
-        return <span>&nbsp;</span>;
-    }
+const TypewriterDisplay = ({ text }: { text: string }) => {
+    const displayedText = useTypewriter({ text });
 
     return (
         <span className="whitespace-pre">
@@ -77,7 +32,7 @@ const Hero = () => {
                     <div className="z-10">
                         <h1 className={`${styles.heroHeadText} mb-6`}>
                             Hi, I'm <br className="hidden sm:block" />
-                            <span className='text-vs-blue whitespace-nowrap'><Typewriter text="Sohan Paliyal" /></span>
+                            <span className='text-vs-blue whitespace-nowrap'><TypewriterDisplay text="Sohan Paliyal" /></span>
                         </h1>
                         <p className={`${styles.heroSubText} max-w-4xl`}>
                             I build scalable web applications and high-performance digital experiences.
