@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /playground
+Allow: /blog
+Allow: /blog/*
+
+# Sitemap
+Sitemap: https://sohanpaliyal.github.io/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
