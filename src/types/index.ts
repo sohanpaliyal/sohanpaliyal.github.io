@@ -1,6 +1,7 @@
 export interface NavLink {
     id: string;
     title: string;
+    children?: NavLink[];
 }
 
 export interface Service {
