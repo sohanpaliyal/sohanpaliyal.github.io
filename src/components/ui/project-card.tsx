@@ -125,31 +125,31 @@ export const ProjectCard = ({
 
                     {/* BACK FACE (Architecture) */}
                     <div
-                        className="absolute inset-0 backface-hidden p-5 flex flex-col h-full bg-black-200 rounded-2xl border border-white/10"
+                        className="absolute inset-0 backface-hidden p-5 flex flex-col h-full bg-white dark:bg-black-200 rounded-2xl border border-black/10 dark:border-white/10"
                         style={{
                             backfaceVisibility: "hidden",
                             transform: "rotateY(180deg)"
                         }}
                     >
                         <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-white font-bold text-lg">System Architecture</h3>
+                            <h3 className="text-gray-900 dark:text-white font-bold text-lg">System Architecture</h3>
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setShowArchitecture(false);
                                 }}
-                                className="p-1 hover:bg-white/10 rounded-full transition-colors"
+                                className="p-1 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors"
                             >
-                                <X size={20} className="text-secondary hover:text-white" />
+                                <X size={20} className="text-secondary dark:text-secondary hover:text-black dark:hover:text-white" />
                             </button>
                         </div>
 
-                        <div className="flex-1 w-full bg-[#0d1117] rounded-xl p-4 flex flex-col justify-center items-center gap-4 border border-white/5 overflow-hidden relative">
+                        <div className="flex-1 w-full bg-gray-50 dark:bg-[#0d1117] rounded-xl p-4 flex flex-col justify-center items-center gap-4 border border-black/5 dark:border-white/5 overflow-hidden relative">
                             <div className="flex flex-col items-center justify-center text-center gap-4">
-                                <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-2">
+                                <div className="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center mb-2">
                                     <Layers size={32} className="text-secondary opacity-50" />
                                 </div>
-                                <h4 className="text-white font-bold text-xl">Coming Soon</h4>
+                                <h4 className="text-gray-900 dark:text-white font-bold text-xl">Coming Soon</h4>
                                 <p className="text-secondary text-sm max-w-[200px]">
                                     Detailed system architecture diagrams for this project will be available soon.
                                 </p>
