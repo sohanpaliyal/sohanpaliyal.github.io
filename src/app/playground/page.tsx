@@ -69,7 +69,7 @@ export default function PlaygroundPage() {
 
     return (
         <>
-            <Script
+            {/* <Script
                 id="playground-structured-data"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -87,7 +87,6 @@ export default function PlaygroundPage() {
                             learning JavaScript, and experimenting with system design patterns.
                         </p>
 
-                        {/* SEO-friendly feature list */}
                         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl">
                             <div className="flex items-center gap-2 text-secondary text-sm">
                                 <span className="text-vs-purple">✓</span>
@@ -118,7 +117,6 @@ export default function PlaygroundPage() {
 
                     <Playground />
 
-                    {/* Additional SEO content */}
                     <div className="mt-8 max-w-3xl">
                         <h2 className="text-white-100 font-bold text-2xl mb-3">
                             Why Use This JavaScript Online Compiler?
@@ -132,7 +130,7 @@ export default function PlaygroundPage() {
                         </p>
                     </div>
                 </Section>
-            </div>
+            </div> */}
         </>
     );
 }
