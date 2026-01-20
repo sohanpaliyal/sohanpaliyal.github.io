@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { navLinks } from "@/constants";
-import { logo, menu, close } from "@/assets";
+import { logo } from "@/assets";
 import { styles } from "@/styles/styles";
 
 import { Github, Linkedin, Phone, Menu, X, Search } from "lucide-react";
@@ -36,7 +36,7 @@ const Navbar = () => {
     return (
         <nav
             className={`${styles.paddingX
-                } w-full flex items-center py-5 fixed top-0 z-20 bg-[#050816]/90 backdrop-blur-md transition-all duration-300 ${scrolled ? "shadow-lg" : ""
+                } w-full flex items-center py-5 fixed top-0 z-20 bg-white/90 dark:bg-[#050816]/90 backdrop-blur-md transition-all duration-300 ${scrolled ? "shadow-lg" : ""
                 }`}
         >
             <div className='w-full flex justify-between items-center max-w-[1400px] mx-auto'>
@@ -108,7 +108,7 @@ const Navbar = () => {
                         title="Search (Cmd+K)"
                     >
                         <Search size={20} />
-                        <span className="hidden lg:inline text-xs border border-white/20 px-1.5 py-0.5 rounded font-mono">
+                        <span className="hidden lg:inline text-xs border border-black/10 dark:border-white/20 px-1.5 py-0.5 rounded font-mono">
                             Cmd K
                         </span>
                     </button>
