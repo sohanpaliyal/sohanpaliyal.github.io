@@ -34,6 +34,11 @@ import phlenu_delivery from "./phlenu_delivery.png";
 import browser_storage from "./browser_storage.png";
 import event_bubbling from "./event_bubbling.svg";
 import react_architecture from "./react_architecture.png";
+import not_found from "./not_found.png";
+import space_bg from "./space_bg.png";
+import astronaut_isolated from "./astronaut_isolated.png";
+import astronaut_isolated_light from "./astronaut_isolated_light.png";
+import space_light_bg from "./space_light_bg.png";
 
 export {
   logo,
@@ -68,5 +73,10 @@ export {
   phlenu_delivery,
   browser_storage,
   event_bubbling,
-  react_architecture
+  react_architecture,
+  not_found,
+  space_bg,
+  astronaut_isolated,
+  astronaut_isolated_light,
+  space_light_bg
 };

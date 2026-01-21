@@ -161,3 +161,31 @@ body {
     box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
   }
 }
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes nebula-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.1); }
+}
+
+@keyframes drift-slow {
+  0% { transform: translateX(-5%) translateY(-5%); }
+  50% { transform: translateX(5%) translateY(5%); }
+  100% { transform: translateX(-5%) translateY(-5%); }
+}
+
+.animate-nebula-slow {
+  animation: nebula-pulse 8s ease-in-out infinite, drift-slow 20s ease-in-out infinite;
+}
+
+.animate-nebula-fast {
+  animation: nebula-pulse 6s ease-in-out infinite, drift-slow 15s ease-in-out infinite reverse;
+}
