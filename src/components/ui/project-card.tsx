@@ -36,7 +36,7 @@ export const ProjectCard = ({
                 scale={1.02}
                 transitionSpeed={450}
                 tiltEnable={!showArchitecture}
-                className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full h-[500px] perspective-1000'
+                className='bg-tertiary rounded-2xl sm:w-[360px] w-full h-[500px] perspective-1000'
             >
                 <div
                     className="relative w-full h-full transition-all duration-500 preserve-3d"
@@ -46,8 +46,8 @@ export const ProjectCard = ({
                     }}
                 >
                     {/* FRONT FACE */}
-                    <div className="absolute inset-0 backface-hidden p-5 flex flex-col h-full" style={{ backfaceVisibility: "hidden" }}>
-                        <div className='relative w-full h-[230px] flex-shrink-0 overflow-hidden rounded-2xl'>
+                    <div className="absolute inset-0 backface-hidden flex flex-col h-full" style={{ backfaceVisibility: "hidden" }}>
+                        <div className='relative w-full h-[230px] flex-shrink-0 overflow-hidden rounded-t-2xl'>
                             <Image
                                 src={image}
                                 alt='project_image'
@@ -87,39 +87,41 @@ export const ProjectCard = ({
                             </div>
                         </div>
 
-                        <div className='mt-5 flex-1 flex flex-col'>
-                            <h3 className='text-white-100 font-bold text-[24px]'>{name}</h3>
-                            <p className='mt-2 text-secondary text-[14px] line-clamp-4 flex-1'>{description}</p>
-                        </div>
+                        <div className="p-5 flex flex-col flex-1">
+                            <div className='flex-1 flex flex-col'>
+                                <h3 className='text-white-100 font-bold text-[24px]'>{name}</h3>
+                                <p className='mt-2 text-secondary text-[14px] line-clamp-4 flex-1'>{description}</p>
+                            </div>
 
-                        <div className='mt-4 flex flex-wrap gap-3'>
-                            {tags.map((tag) => {
-                                const { type, icon: Icon } = getTechIcon(tag.name);
-                                return (
-                                    <div
-                                        key={`${name}-${tag.name}`}
-                                        className="relative group/tag"
-                                    >
-                                        <div className="w-10 h-10 rounded-full bg-black-200/50 p-2 flex justify-center items-center border border-white/5 hover:border-white/20 transition-colors">
-                                            {type === "image" ? (
-                                                <Image
-                                                    src={Icon as any}
-                                                    alt={tag.name}
-                                                    width={24}
-                                                    height={24}
-                                                    className="object-contain w-full h-full"
-                                                />
-                                            ) : (
-                                                // @ts-ignore
-                                                <Icon size={20} className="text-secondary" />
-                                            )}
+                            <div className='mt-4 flex flex-wrap gap-3'>
+                                {tags.map((tag) => {
+                                    const { type, icon: Icon } = getTechIcon(tag.name);
+                                    return (
+                                        <div
+                                            key={`${name}-${tag.name}`}
+                                            className="relative group/tag"
+                                        >
+                                            <div className="w-10 h-10 rounded-full bg-black-200/50 p-2 flex justify-center items-center border border-white/5 hover:border-white/20 transition-colors">
+                                                {type === "image" ? (
+                                                    <Image
+                                                        src={Icon as any}
+                                                        alt={tag.name}
+                                                        width={24}
+                                                        height={24}
+                                                        className="object-contain w-full h-full"
+                                                    />
+                                                ) : (
+                                                    // @ts-ignore
+                                                    <Icon size={20} className="text-secondary" />
+                                                )}
+                                            </div>
+                                            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black-100 text-white text-[10px] rounded opacity-0 group-hover/tag:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10 border border-white/10">
+                                                {tag.name}
+                                            </div>
                                         </div>
-                                        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black-100 text-white text-[10px] rounded opacity-0 group-hover/tag:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10 border border-white/10">
-                                            {tag.name}
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
 

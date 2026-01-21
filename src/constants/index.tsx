@@ -279,6 +279,7 @@ export const companyProjects: Project[] = [
     ],
     image: karmm,
     source_code_link: "https://karmm.com/",
+    imageClassName: "object-top",
   },
   {
     name: "Phlenu Delivery",
