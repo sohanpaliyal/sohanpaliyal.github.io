@@ -27,7 +27,7 @@ const Contact = () => {
                         Always open to discussing new projects, creative ideas, or opportunities to collaborate.
                     </p>
 
-                    <div className="grid sm:grid-cols-2 gap-4 mt-4">
+                    <div className="grid sm:grid-cols-2 gap-5 mt-6">
                         <ContactOption
                             href="mailto:paliyalsohan7@gmail.com"
                             icon={Mail}
