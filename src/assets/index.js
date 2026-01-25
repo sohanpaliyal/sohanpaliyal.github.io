@@ -40,7 +40,10 @@ import astronaut_isolated from "./astronaut_isolated.png";
 import astronaut_isolated_light from "./astronaut_isolated_light.png";
 import space_light_bg from "./space_light_bg.png";
 
+import dailydevtools from "./dailydevtools.png";
+
 export {
+  dailydevtools,
   logo,
   backend,
   creator,

@@ -23,7 +23,8 @@ import {
   phlenu_delivery,
   browser_storage,
   event_bubbling,
-  react_architecture
+  react_architecture,
+  dailydevtools
 } from "../assets";
 import {
   NavLink,
@@ -313,6 +314,27 @@ export const companyProjects: Project[] = [
 ];
 
 export const personalProjects: Project[] = [
+  {
+    name: "DailyDevTools",
+    description:
+      "A comprehensive suite of 90+ free, privacy-focused developer tools. Includes formatters, converters, generators, and more—all running locally in the browser with no server-side data processing.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "green-text-gradient",
+      },
+    ],
+    image: dailydevtools,
+    source_code_link: "https://www.dailydev.tools/en",
+  },
   {
     name: "WhatsApp Web Clone",
     description:
